@@ -1,4 +1,4 @@
-package com.example.nightwingky.androidclient.fragment.home;
+package com.example.nightwingky.androidclient.fragment;
 
 import android.app.Fragment;
 import android.os.AsyncTask;
@@ -11,6 +11,7 @@ import android.widget.ListView;
 
 import com.example.nightwingky.androidclient.R;
 import com.example.nightwingky.androidclient.constant.MyConstant;
+import com.example.nightwingky.androidclient.fragment.adapter.MyListViewAdapter;
 import com.example.nightwingky.androidclient.http.HttpQuery;
 import com.example.nightwingky.androidclient.http.MyJsonConverter;
 import com.example.nightwingky.androidclient.vo.ContentVO;
@@ -89,7 +90,6 @@ public class FragmentHome extends Fragment {
         protected void onPostExecute(List<ContentVO> contentVOs) {
             super.onPostExecute(contentVOs);
 
-            /******************/
             MyListViewAdapter adapter = new MyListViewAdapter(FragmentHome.this.getActivity(), contentVOs);
             mListView.setAdapter(adapter);
         }

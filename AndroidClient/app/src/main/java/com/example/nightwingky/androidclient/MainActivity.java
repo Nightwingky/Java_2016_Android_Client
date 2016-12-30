@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import com.example.nightwingky.androidclient.fragment.home.FragmentHome;
+import com.example.nightwingky.androidclient.fragment.FragmentHome;
 import com.example.nightwingky.androidclient.fragment.MyFragment;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -21,9 +21,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private FrameLayout ly_content;
 
-    private MyFragment f1, f2, f3, f4;
+    private MyFragment f2, f3, f4;
     private FragmentHome fragmentHome;
     private FragmentManager fragmentManager;
+
+    private FragmentTransaction transaction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +33,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         bindView();
+
+        transaction = getFragmentManager().beginTransaction();
+
+        initHomeFragment();
+        transaction.commit();
     }
 
     private void bindView() {
@@ -45,6 +52,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tv_tabSearch.setOnClickListener(this);
         tv_tabShoppingcart.setOnClickListener(this);
         tv_tabSettings.setOnClickListener(this);
+    }
+
+    private void initHomeFragment() {
+        hideAllFragment(transaction);
+
+        setUnselected();
+        tv_tabHome.setSelected(true);
+
+        fragmentHome = new FragmentHome();
+        transaction.add(R.id.fragment_container, fragmentHome);
+
     }
 
     private void hideAllFragment(FragmentTransaction transaction) {
@@ -71,7 +89,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction = getFragmentManager().beginTransaction();
         hideAllFragment(transaction);
 
         switch (v.getId()) {

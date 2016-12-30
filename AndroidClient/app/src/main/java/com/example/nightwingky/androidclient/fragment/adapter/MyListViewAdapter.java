@@ -1,4 +1,4 @@
-package com.example.nightwingky.androidclient.fragment.home;
+package com.example.nightwingky.androidclient.fragment.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.nightwingky.androidclient.R;
+import com.example.nightwingky.androidclient.fragment.imageloader.ImageLoader;
 import com.example.nightwingky.androidclient.vo.ContentVO;
 
 import java.util.List;
@@ -58,6 +59,11 @@ public class MyListViewAdapter extends BaseAdapter {
         }
 
         viewHolder.ivIcon.setImageResource(R.mipmap.ic_launcher);
+//        多线程方式加载
+//        new ImageLoader().showImageByThread(viewHolder.ivIcon, mList.get(position).getNewsIconUrl());
+
+//        AsyscTask方式执行
+        new ImageLoader().showImageByAsyncTask(viewHolder.ivIcon, mList.get(position).getNewsIconUrl());
         viewHolder.tvTitle.setText(mList.get(position).getNewsTitle());
         viewHolder.tvContent.setText(mList.get(position).getNewsContent());
 
