@@ -6,13 +6,15 @@ package com.example.nightwingky.androidclient.constant;
 
 public class MyConstant {
 
-    private static String url = "http://www.imooc.com/api/teacher?type=4&num=30";
+    private static final String homeInfoUrl = "http://www.imooc.com/api/teacher?type=4&num=30";
 
-    public static String getUrl() {
-        return url;
+    private static final String shoppingCartInfoUrl = "http://www.imooc.com/api/teacher?type=4&num=30";
+
+    public static String getHomeInfoUrl() {
+        return homeInfoUrl;
     }
 
-    public static void setUrl(String url) {
-        MyConstant.url = url;
+    public static String getShoppingCartInfoUrl() {
+        return shoppingCartInfoUrl;
     }
 }

@@ -9,11 +9,12 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.example.nightwingky.androidclient.fragment.FragmentHome;
+import com.example.nightwingky.androidclient.fragment.FragmentShoppingCart;
 import com.example.nightwingky.androidclient.fragment.MyFragment;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private TextView tv_topBar;
+//    private TextView tv_topBar;
     private TextView tv_tabHome;
     private TextView tv_tabSearch;
     private TextView tv_tabShoppingcart;
@@ -21,8 +22,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private FrameLayout ly_content;
 
-    private MyFragment f2, f3, f4;
+    private MyFragment f2, f4;
     private FragmentHome fragmentHome;
+    private FragmentShoppingCart fragmentShoppingCart;
     private FragmentManager fragmentManager;
 
     private FragmentTransaction transaction;
@@ -41,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void bindView() {
-        tv_topBar = (TextView) findViewById(R.id.text_top);
+//        tv_topBar = (TextView) findViewById(R.id.text_top);
         tv_tabHome = (TextView) findViewById(R.id.txt_home);
         tv_tabSearch = (TextView) findViewById(R.id.txt_search);
         tv_tabShoppingcart = (TextView) findViewById(R.id.txt_shoppingcart);
@@ -72,8 +74,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(f2 != null){
             transaction.hide(f2);
         }
-        if(f3 != null){
-            transaction.hide(f3);
+        if(fragmentShoppingCart != null){
+            transaction.hide(fragmentShoppingCart);
         }
         if(f4 != null){
             transaction.hide(f4);
@@ -119,11 +121,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 setUnselected();
                 tv_tabShoppingcart.setSelected(true);
 
-                if(f3 == null) {
-                    f3 = new MyFragment("Shopping Cart");
-                    transaction.add(R.id.fragment_container, f3);
+                if(fragmentShoppingCart == null) {
+                    fragmentShoppingCart = new FragmentShoppingCart();
+                    transaction.add(R.id.fragment_container, fragmentShoppingCart);
                 } else {
-                    transaction.show(f3);
+                    transaction.show(fragmentShoppingCart);
                 }
                 break;
             case R.id.txt_settings:

@@ -17,10 +17,8 @@ import okhttp3.Response;
 
 public class HttpQuery {
 
-    private static String url = MyConstant.getUrl();
-
     @NonNull
-    public static String getQueryContent() throws IOException {
+    public static String getQueryContent(String url) throws IOException {
         OkHttpClient okHttpClient = new OkHttpClient();
 
         HttpUrl httpUrl = HttpUrl.parse(url)

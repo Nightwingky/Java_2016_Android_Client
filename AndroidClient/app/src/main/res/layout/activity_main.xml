@@ -9,16 +9,8 @@
     <RelativeLayout
         android:id="@+id/tab_title"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="2dp"
         android:background="@color/transparent">
-        <TextView
-            android:id="@+id/text_top"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:textSize="18sp"
-            android:textColor="@color/text_gray"
-            android:text= "@string/information" />
 
         <View
             android:layout_width="match_parent"
@@ -30,7 +22,7 @@
     <LinearLayout
         android:id="@+id/tab_menu"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_alignParentBottom="true">
 
@@ -44,6 +36,7 @@
             android:drawableTop="@drawable/tab_menu_home"
             android:gravity="center"
             android:textColor="@drawable/tab_menu_home_text"
+            android:textSize="10sp"
             android:text="首页"/>
 
         <TextView
@@ -56,6 +49,7 @@
             android:drawableTop="@drawable/tab_menu_search"
             android:gravity="center"
             android:textColor="@drawable/tab_menu_search_text"
+            android:textSize="10sp"
             android:text="搜索"/>
 
         <TextView
@@ -68,6 +62,7 @@
             android:drawableTop="@drawable/tab_menu_shoppingcart"
             android:gravity="center"
             android:textColor="@drawable/tab_menu_shoppingcart_text"
+            android:textSize="10sp"
             android:text="购物车"/>
 
         <TextView
@@ -80,6 +75,7 @@
             android:drawableTop="@drawable/tab_menu_settings"
             android:gravity="center"
             android:textColor="@drawable/tab_menu_settings_text"
+            android:textSize="10sp"
             android:text="设置"/>
 
     </LinearLayout>

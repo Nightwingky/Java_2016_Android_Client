@@ -11,7 +11,7 @@ import android.widget.ListView;
 
 import com.example.nightwingky.androidclient.R;
 import com.example.nightwingky.androidclient.constant.MyConstant;
-import com.example.nightwingky.androidclient.fragment.adapter.MyListViewAdapter;
+import com.example.nightwingky.androidclient.fragment.adapter.HomeListViewAdapter;
 import com.example.nightwingky.androidclient.http.HttpQuery;
 import com.example.nightwingky.androidclient.http.MyJsonConverter;
 import com.example.nightwingky.androidclient.vo.ContentVO;
@@ -29,7 +29,7 @@ public class FragmentHome extends Fragment {
 
     private ListView mListView;
 
-    private static String URL= MyConstant.getUrl();
+    private static String URL= MyConstant.getHomeInfoUrl();
 
     public FragmentHome() {
 
@@ -46,7 +46,7 @@ public class FragmentHome extends Fragment {
         return view;
     }
 
-    private List<ContentVO> getJsonData(String URL) throws IOException, JSONException {
+    private List<ContentVO> getJsonData() throws IOException, JSONException {
 
 //        JSONObject jsonObject;
 //        ContentVO contentVO;
@@ -58,14 +58,14 @@ public class FragmentHome extends Fragment {
 //        for(int i = 0; i < jsonArray.length(); i++) {
 //            jsonObject = jsonArray.getJSONObject(i);
 //            contentVO = new ContentVO();
-//            contentVO.setNewsIconUrl(jsonObject.getString("picSmall"));
-//            contentVO.setNewsTitle(jsonObject.getString("name"));
-//            contentVO.setNewsContent(jsonObject.getString("description"));
+//            contentVO.setContentImageURL(jsonObject.getString("picSmall"));
+//            contentVO.setContentTitle(jsonObject.getString("name"));
+//            contentVO.setContentPrice(jsonObject.getString("description"));
 //
 //            contentVOList.add(contentVO);
 //        }
 
-        String jsonString = HttpQuery.getQueryContent();
+        String jsonString = HttpQuery.getQueryContent(MyConstant.getHomeInfoUrl());
         List<ContentVO> contentVOList = MyJsonConverter.convertJsonString(jsonString);
 
         return contentVOList;
@@ -77,7 +77,7 @@ public class FragmentHome extends Fragment {
         @Override
         protected List<ContentVO> doInBackground(String... params) {
             try {
-                return getJsonData(params[0]);
+                return getJsonData();
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (JSONException e) {
@@ -90,7 +90,7 @@ public class FragmentHome extends Fragment {
         protected void onPostExecute(List<ContentVO> contentVOs) {
             super.onPostExecute(contentVOs);
 
-            MyListViewAdapter adapter = new MyListViewAdapter(FragmentHome.this.getActivity(), contentVOs);
+            HomeListViewAdapter adapter = new HomeListViewAdapter(FragmentHome.this.getActivity(), contentVOs);
             mListView.setAdapter(adapter);
         }
     }

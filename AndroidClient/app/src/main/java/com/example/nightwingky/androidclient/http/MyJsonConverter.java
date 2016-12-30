@@ -26,9 +26,9 @@ public class MyJsonConverter {
         for(int i = 0; i < jsonArray.length(); i++) {
             jsonObject = jsonArray.getJSONObject(i);
             contentVO = new ContentVO();
-            contentVO.setNewsIconUrl(jsonObject.getString("picSmall"));
-            contentVO.setNewsTitle(jsonObject.getString("name"));
-            contentVO.setNewsContent(jsonObject.getString("description"));
+            contentVO.setContentImageURL(jsonObject.getString("picSmall"));
+            contentVO.setContentTitle(jsonObject.getString("name"));
+            contentVO.setContentPrice(jsonObject.getString("description"));
 
             contentVOList.add(contentVO);
         }

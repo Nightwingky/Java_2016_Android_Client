@@ -18,12 +18,12 @@ import java.util.List;
  * Created by nightwingky on 16-12-30.
  */
 
-public class MyListViewAdapter extends BaseAdapter {
+public class HomeListViewAdapter extends BaseAdapter {
 
     private List<ContentVO> mList;
     private LayoutInflater mInflater;
 
-    public MyListViewAdapter(Context context, List<ContentVO> mList) {
+    public HomeListViewAdapter(Context context, List<ContentVO> mList) {
         this.mList = mList;
         this.mInflater = LayoutInflater.from(context);
     }
@@ -60,12 +60,12 @@ public class MyListViewAdapter extends BaseAdapter {
 
         viewHolder.ivIcon.setImageResource(R.mipmap.ic_launcher);
 //        多线程方式加载
-//        new ImageLoader().showImageByThread(viewHolder.ivIcon, mList.get(position).getNewsIconUrl());
+//        new ImageLoader().showImageByThread(viewHolder.ivIcon, mList.get(position).getContentImageURL());
 
 //        AsyscTask方式执行
-        new ImageLoader().showImageByAsyncTask(viewHolder.ivIcon, mList.get(position).getNewsIconUrl());
-        viewHolder.tvTitle.setText(mList.get(position).getNewsTitle());
-        viewHolder.tvContent.setText(mList.get(position).getNewsContent());
+        new ImageLoader().showImageByAsyncTask(viewHolder.ivIcon, mList.get(position).getContentImageURL());
+        viewHolder.tvTitle.setText(mList.get(position).getContentTitle());
+        viewHolder.tvContent.setText(mList.get(position).getContentPrice());
 
         return convertView;
     }
