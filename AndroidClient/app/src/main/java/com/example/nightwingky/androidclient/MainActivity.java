@@ -8,15 +8,8 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.example.nightwingky.androidclient.fragment.home.FragmentHome;
 import com.example.nightwingky.androidclient.fragment.MyFragment;
-
-import java.io.IOException;
-
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -29,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private FrameLayout ly_content;
 
     private MyFragment f1, f2, f3, f4;
+    private FragmentHome fragmentHome;
     private FragmentManager fragmentManager;
 
     @Override
@@ -54,8 +48,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void hideAllFragment(FragmentTransaction transaction) {
-        if(f1 != null){
-            transaction.hide(f1);
+        if(fragmentHome != null){
+            transaction.hide(fragmentHome);
         }
         if(f2 != null){
             transaction.hide(f2);
@@ -85,11 +79,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 setUnselected();
                 tv_tabHome.setSelected(true);
 
-                if(f1 == null) {
-                    f1 = new MyFragment("home");
-                    transaction.add(R.id.fragment_container, f1);
+                if(fragmentHome == null) {
+                    fragmentHome = new FragmentHome();
+                    transaction.add(R.id.fragment_container, fragmentHome);
                 } else {
-                    transaction.show(f1);
+                    transaction.show(fragmentHome);
                 }
                 break;
             case R.id.txt_search:

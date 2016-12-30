@@ -1,6 +1,5 @@
-package com.example.nightwingky.androidclient.fragment.adapter;
+package com.example.nightwingky.androidclient.fragment.home;
 
-import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;

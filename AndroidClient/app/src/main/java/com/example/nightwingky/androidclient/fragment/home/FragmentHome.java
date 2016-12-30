@@ -1,10 +1,9 @@
-package com.example.nightwingky.androidclient.fragment;
+package com.example.nightwingky.androidclient.fragment.home;
 
 import android.app.Fragment;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +11,6 @@ import android.widget.ListView;
 
 import com.example.nightwingky.androidclient.R;
 import com.example.nightwingky.androidclient.constant.MyConstant;
-import com.example.nightwingky.androidclient.fragment.adapter.MyListViewAdapter;
 import com.example.nightwingky.androidclient.http.HttpQuery;
 import com.example.nightwingky.androidclient.http.MyJsonConverter;
 import com.example.nightwingky.androidclient.vo.ContentVO;
@@ -42,6 +40,7 @@ public class FragmentHome extends Fragment {
         View view = inflater.inflate(R.layout.home_layout_fragment, container, false);
         mListView = (ListView) view.findViewById(R.id.lv_home);
 
+        new ContentAsyncTask().execute(URL);
 
         return view;
     }
@@ -91,7 +90,8 @@ public class FragmentHome extends Fragment {
             super.onPostExecute(contentVOs);
 
             /******************/
-            MyListViewAdapter adapter = new MyListViewAdapter()
+            MyListViewAdapter adapter = new MyListViewAdapter(FragmentHome.this.getActivity(), contentVOs);
+            mListView.setAdapter(adapter);
         }
     }
 }

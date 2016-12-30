@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Title"
-            android:textSize="24sp"
+            android:textSize="20sp"
             android:paddingBottom="5dp"
             android:maxLines="1"/>
         <TextView
@@ -30,7 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Content"
-            android:textSize="18sp"
+            android:textSize="14sp"
             android:maxLines="2"/>
     </LinearLayout>
 
