@@ -6,4 +6,5 @@
     <color name="text_gray">#999999</color>
     <color name="transparent">#ffffff</color>
     <color name="text_green">#005500</color>
+    <color name="layout_gray">#cccccc</color>
 </resources>

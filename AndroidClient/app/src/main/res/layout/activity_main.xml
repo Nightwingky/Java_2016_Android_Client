@@ -9,12 +9,12 @@
     <RelativeLayout
         android:id="@+id/tab_title"
         android:layout_width="match_parent"
-        android:layout_height="2dp"
+        android:layout_height="1dp"
         android:background="@color/transparent">
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="2px"
+            android:layout_height="1px"
             android:background="@color/text_gray"
             android:layout_alignParentBottom="true"/>
     </RelativeLayout>
@@ -23,61 +23,73 @@
         android:id="@+id/tab_menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_alignParentBottom="true">
 
-        <TextView
-            android:id="@+id/txt_home"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/tab_menu_bg"
-            android:drawablePadding="3dp"
-            android:drawableTop="@drawable/tab_menu_home"
-            android:gravity="center"
-            android:textColor="@drawable/tab_menu_home_text"
-            android:textSize="10sp"
-            android:text="首页"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/text_gray"
+            android:layout_alignParentBottom="true"/>
 
-        <TextView
-            android:id="@+id/txt_search"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/tab_menu_bg"
-            android:drawablePadding="3dp"
-            android:drawableTop="@drawable/tab_menu_search"
-            android:gravity="center"
-            android:textColor="@drawable/tab_menu_search_text"
-            android:textSize="10sp"
-            android:text="搜索"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/txt_shoppingcart"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/tab_menu_bg"
-            android:drawablePadding="3dp"
-            android:drawableTop="@drawable/tab_menu_shoppingcart"
-            android:gravity="center"
-            android:textColor="@drawable/tab_menu_shoppingcart_text"
-            android:textSize="10sp"
-            android:text="购物车"/>
+            <TextView
+                android:id="@+id/txt_home"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/tab_menu_bg"
+                android:drawablePadding="3dp"
+                android:drawableTop="@drawable/tab_menu_home"
+                android:gravity="center"
+                android:textColor="@drawable/tab_menu_home_text"
+                android:textSize="10sp"
+                android:text="首页"/>
 
-        <TextView
-            android:id="@+id/txt_settings"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/tab_menu_bg"
-            android:drawablePadding="3dp"
-            android:drawableTop="@drawable/tab_menu_settings"
-            android:gravity="center"
-            android:textColor="@drawable/tab_menu_settings_text"
-            android:textSize="10sp"
-            android:text="设置"/>
+            <TextView
+                android:id="@+id/txt_search"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/tab_menu_bg"
+                android:drawablePadding="3dp"
+                android:drawableTop="@drawable/tab_menu_search"
+                android:gravity="center"
+                android:textColor="@drawable/tab_menu_search_text"
+                android:textSize="10sp"
+                android:text="搜索"/>
 
+            <TextView
+                android:id="@+id/txt_shoppingcart"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/tab_menu_bg"
+                android:drawablePadding="3dp"
+                android:drawableTop="@drawable/tab_menu_shoppingcart"
+                android:gravity="center"
+                android:textColor="@drawable/tab_menu_shoppingcart_text"
+                android:textSize="10sp"
+                android:text="购物车"/>
+
+            <TextView
+                android:id="@+id/txt_settings"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/tab_menu_bg"
+                android:drawablePadding="3dp"
+                android:drawableTop="@drawable/tab_menu_settings"
+                android:gravity="center"
+                android:textColor="@drawable/tab_menu_settings_text"
+                android:textSize="10sp"
+                android:text="设置"/>
+
+        </LinearLayout>
     </LinearLayout>
 
     <View
