@@ -11,10 +11,7 @@ import android.widget.ListView;
 
 import com.example.nightwingky.androidclient.R;
 import com.example.nightwingky.androidclient.constant.MyConstant;
-import com.example.nightwingky.androidclient.fragment.adapter.ShoppingCartListViewAdapter;
 import com.example.nightwingky.androidclient.http.HttpQuery;
-import com.example.nightwingky.androidclient.http.MyJsonConverter;
-import com.example.nightwingky.androidclient.vo.CommodityVO;
 import com.example.nightwingky.androidclient.vo.ContentVO;
 
 import org.json.JSONException;
@@ -50,9 +47,10 @@ public class FragmentShoppingCart extends Fragment {
     // TODO: 16-12-30 服务器未传递json格式的CommodityVO对象
     private List<ContentVO> getJsonData() throws IOException, JSONException {
         String jsonString = HttpQuery.getQueryContent(MyConstant.getHomeInfoUrl());
-        List<ContentVO> contentVOList = MyJsonConverter.convertJsonString(jsonString);
+//        List<ContentVO> contentVOList = MyJsonConverter.convertJsonString(jsonString);
 
-        return contentVOList;
+//        return contentVOList;
+        return null;
     }
 
     // TODO: 16-12-30 服务器未传递json格式的CommodityVO对象

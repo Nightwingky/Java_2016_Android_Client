@@ -13,7 +13,7 @@ import com.example.nightwingky.androidclient.R;
 import com.example.nightwingky.androidclient.constant.MyConstant;
 import com.example.nightwingky.androidclient.fragment.adapter.HomeListViewAdapter;
 import com.example.nightwingky.androidclient.http.HttpQuery;
-import com.example.nightwingky.androidclient.http.MyJsonConverter;
+import com.example.nightwingky.androidclient.json.MyJsonConverter;
 import com.example.nightwingky.androidclient.vo.ContentVO;
 
 import org.json.JSONException;
