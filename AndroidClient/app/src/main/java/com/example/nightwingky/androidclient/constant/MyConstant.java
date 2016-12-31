@@ -8,7 +8,7 @@ public class MyConstant {
 
     private static final String homeInfoUrl = "http://172.23.70.17:8080/AndroidServer/HomeListViewServlet";
 
-    private static final String shoppingCartInfoUrl = "http://www.imooc.com/api/teacher?type=4&num=30";
+    private static final String shoppingCartInfoUrl = "http://172.23.70.17:8080/AndroidServer/SCLvServlet";
 
     public static String getHomeInfoUrl() {
         return homeInfoUrl;

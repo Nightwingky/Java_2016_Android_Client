@@ -53,6 +53,8 @@ public class ShoppingCartListViewAdapter extends BaseAdapter {
             shoppingCartViewHolder.tvTitle = (TextView) convertView.findViewById(R.id.tv_shoppingcart_list_item_title);
             shoppingCartViewHolder.tvPrice = (TextView) convertView.findViewById(R.id.tv_shoppingcart_list_item_price);
             shoppingCartViewHolder.tvAmount = (TextView) convertView.findViewById(R.id.tv_shoppingcart_list_item_amount);
+
+            convertView.setTag(shoppingCartViewHolder);
         } else {
             shoppingCartViewHolder = (ShoppingCartViewHolder) convertView.getTag();
         }

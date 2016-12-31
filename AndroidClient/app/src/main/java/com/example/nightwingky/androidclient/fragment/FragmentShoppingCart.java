@@ -11,7 +11,10 @@ import android.widget.ListView;
 
 import com.example.nightwingky.androidclient.R;
 import com.example.nightwingky.androidclient.constant.MyConstant;
+import com.example.nightwingky.androidclient.fragment.adapter.ShoppingCartListViewAdapter;
 import com.example.nightwingky.androidclient.http.HttpQuery;
+import com.example.nightwingky.androidclient.json.MyJsonConverter;
+import com.example.nightwingky.androidclient.vo.CommodityVO;
 import com.example.nightwingky.androidclient.vo.ContentVO;
 
 import org.json.JSONException;
@@ -45,19 +48,18 @@ public class FragmentShoppingCart extends Fragment {
     }
 
     // TODO: 16-12-30 服务器未传递json格式的CommodityVO对象
-    private List<ContentVO> getJsonData() throws IOException, JSONException {
-        String jsonString = HttpQuery.getQueryContent(MyConstant.getHomeInfoUrl());
-//        List<ContentVO> contentVOList = MyJsonConverter.convertJsonString(jsonString);
+    private List<CommodityVO> getJsonData() throws IOException, JSONException {
+        String jsonString = HttpQuery.getQueryContent(URL);
+        List<CommodityVO> commodityVOList = MyJsonConverter.convertSCJsonString(jsonString);
 
-//        return contentVOList;
-        return null;
+        return commodityVOList;
     }
 
     // TODO: 16-12-30 服务器未传递json格式的CommodityVO对象
-    class ContentAsyncTask extends AsyncTask<String, Void, List<ContentVO>> {
+    class ContentAsyncTask extends AsyncTask<String, Void, List<CommodityVO>> {
 
         @Override
-        protected List<ContentVO> doInBackground(String... params) {
+        protected List<CommodityVO> doInBackground(String... params) {
             try {
                 return getJsonData();
             } catch (IOException e) {
@@ -70,8 +72,11 @@ public class FragmentShoppingCart extends Fragment {
 
         // TODO: 16-12-30 服务器未传递json格式的CommodityVO对象
         @Override
-        protected void onPostExecute(List<ContentVO> contentVOs) {
-            super.onPostExecute(contentVOs);
+        protected void onPostExecute(List<CommodityVO> commodityVOs) {
+            super.onPostExecute(commodityVOs);
+
+            ShoppingCartListViewAdapter adapter = new ShoppingCartListViewAdapter(FragmentShoppingCart.this.getActivity(), commodityVOs);
+            mListView.setAdapter(adapter);
         }
     }
 }

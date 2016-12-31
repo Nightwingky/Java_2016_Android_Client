@@ -65,8 +65,8 @@ public class FragmentHome extends Fragment {
 //            contentVOList.add(contentVO);
 //        }
 
-        String jsonString = HttpQuery.getQueryContent(MyConstant.getHomeInfoUrl());
-        List<ContentVO> contentVOList = MyJsonConverter.convertJsonString(jsonString);
+        String jsonString = HttpQuery.getQueryContent(URL);
+        List<ContentVO> contentVOList = MyJsonConverter.convertHomeJsonString(jsonString);
 
         return contentVOList;
     }
