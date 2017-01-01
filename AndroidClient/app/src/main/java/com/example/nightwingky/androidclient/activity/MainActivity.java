@@ -1,4 +1,4 @@
-package com.example.nightwingky.androidclient;
+package com.example.nightwingky.androidclient.activity;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.example.nightwingky.androidclient.R;
 import com.example.nightwingky.androidclient.fragment.FragmentHome;
 import com.example.nightwingky.androidclient.fragment.FragmentSearch;
 import com.example.nightwingky.androidclient.fragment.FragmentShoppingCart;

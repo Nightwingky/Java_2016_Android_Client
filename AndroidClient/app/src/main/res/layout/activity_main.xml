@@ -4,7 +4,7 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.nightwingky.androidclient.MainActivity">
+    tools:context="com.example.nightwingky.androidclient.activity.MainActivity">
 
     <RelativeLayout
         android:id="@+id/tab_title"
