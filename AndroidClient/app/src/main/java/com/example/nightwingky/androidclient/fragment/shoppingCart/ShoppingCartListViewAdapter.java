@@ -1,7 +1,6 @@
-package com.example.nightwingky.androidclient.fragment.adapter;
+package com.example.nightwingky.androidclient.fragment.shoppingCart;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.nightwingky.androidclient.R;
-import com.example.nightwingky.androidclient.fragment.imageloader.ImageLoader;
+import com.example.nightwingky.androidclient.imageLoader.ImageLoader;
 import com.example.nightwingky.androidclient.vo.CommodityVO;
 
 import java.util.List;

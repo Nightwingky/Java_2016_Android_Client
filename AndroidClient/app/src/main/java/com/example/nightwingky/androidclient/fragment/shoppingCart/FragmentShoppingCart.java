@@ -1,4 +1,4 @@
-package com.example.nightwingky.androidclient.fragment;
+package com.example.nightwingky.androidclient.fragment.shoppingCart;
 
 import android.app.Fragment;
 import android.os.AsyncTask;
@@ -12,7 +12,6 @@ import android.widget.TextView;
 
 import com.example.nightwingky.androidclient.R;
 import com.example.nightwingky.androidclient.constant.MyConstant;
-import com.example.nightwingky.androidclient.fragment.adapter.ShoppingCartListViewAdapter;
 import com.example.nightwingky.androidclient.http.HttpQuery;
 import com.example.nightwingky.androidclient.json.MyJsonConverter;
 import com.example.nightwingky.androidclient.vo.CommodityVO;

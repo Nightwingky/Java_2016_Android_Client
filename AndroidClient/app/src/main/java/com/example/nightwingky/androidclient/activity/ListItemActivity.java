@@ -5,13 +5,15 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.nightwingky.androidclient.R;
 import com.example.nightwingky.androidclient.constant.MyConstant;
-import com.example.nightwingky.androidclient.fragment.imageloader.ImageLoader;
+import com.example.nightwingky.androidclient.imageLoader.ImageLoader;
 import com.example.nightwingky.androidclient.http.HttpPostQuery;
 import com.example.nightwingky.androidclient.json.MyJsonConverter;
 import com.example.nightwingky.androidclient.vo.ItemDescriptionVO;
@@ -31,7 +33,8 @@ public class ListItemActivity extends AppCompatActivity {
 
     private String queryTitle;
 
-    private static String URL = MyConstant.getItemDescriptionUrl();
+    private static String itemDescriptionURL = MyConstant.getItemDescriptionUrl();
+    private static String itemInsertURL = MyConstant.getItemInsertUrl();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +45,7 @@ public class ListItemActivity extends AppCompatActivity {
 
         getParameter();
 
-        new ListItemAsyncTask().execute(URL);
+        new ListItemAsyncTask().execute(itemDescriptionURL);
     }
 
     private void getParameter() {
@@ -58,10 +61,17 @@ public class ListItemActivity extends AppCompatActivity {
         tv_itemDescription = (TextView) findViewById(R.id.tv_item_description_description);
         tv_itemPrice = (TextView) findViewById(R.id.tv_item_description_price);
         btn_submit = (Button) findViewById(R.id.btn_item_description_submit);
+
+        btn_submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new SubmitAsyncTask().execute(itemInsertURL);
+            }
+        });
     }
 
     private ItemDescriptionVO getJsonData() throws IOException, JSONException {
-        String jsonString = HttpPostQuery.getQueryContent(URL, queryTitle);
+        String jsonString = HttpPostQuery.getQueryContent(itemDescriptionURL, queryTitle);
 
         ItemDescriptionVO item = MyJsonConverter.convertItemDescriptionJsonString(jsonString);
 
@@ -94,6 +104,38 @@ public class ListItemActivity extends AppCompatActivity {
             tv_itemPrice.setText(itemDescriptionVO.getItemPrice());
 
             new ImageLoader().showImageByAsyncTask(mImageView, itemDescriptionVO.getItemPicURL());
+        }
+    }
+
+    class SubmitAsyncTask extends AsyncTask<String, Void, Boolean> {
+
+        private boolean flag = false;
+
+        @Override
+        protected Boolean doInBackground(String... params) {
+
+            try {
+                HttpPostQuery.getQueryContent(itemInsertURL, queryTitle);
+
+                if(HttpPostQuery.flag == true) {
+                    HttpPostQuery.flag = false;
+                    flag = true;
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            return flag;
+        }
+
+        @Override
+        protected void onPostExecute(Boolean aBoolean) {
+            super.onPostExecute(aBoolean);
+
+            if(flag == true) {
+                Toast.makeText(ListItemActivity.this, "添加成功", Toast.LENGTH_SHORT).show();
+                flag = false;
+            }
         }
     }
 }

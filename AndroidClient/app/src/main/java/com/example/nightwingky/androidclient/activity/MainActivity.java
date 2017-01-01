@@ -4,20 +4,15 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.example.nightwingky.androidclient.R;
-import com.example.nightwingky.androidclient.constant.MyConstant;
-import com.example.nightwingky.androidclient.fragment.FragmentHome;
-import com.example.nightwingky.androidclient.fragment.FragmentSearch;
-import com.example.nightwingky.androidclient.fragment.FragmentShoppingCart;
+import com.example.nightwingky.androidclient.fragment.home.FragmentHome;
+import com.example.nightwingky.androidclient.fragment.search.FragmentSearch;
+import com.example.nightwingky.androidclient.fragment.shoppingCart.FragmentShoppingCart;
 import com.example.nightwingky.androidclient.fragment.MyFragment;
-import com.example.nightwingky.androidclient.http.HttpPostQuery;
-
-import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 

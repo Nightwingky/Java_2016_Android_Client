@@ -1,4 +1,4 @@
-package com.example.nightwingky.androidclient.fragment.imageloader;
+package com.example.nightwingky.androidclient.imageLoader;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;

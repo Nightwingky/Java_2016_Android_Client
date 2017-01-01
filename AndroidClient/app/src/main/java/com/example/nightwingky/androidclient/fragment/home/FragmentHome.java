@@ -1,11 +1,10 @@
-package com.example.nightwingky.androidclient.fragment;
+package com.example.nightwingky.androidclient.fragment.home;
 
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +15,6 @@ import android.widget.TextView;
 import com.example.nightwingky.androidclient.R;
 import com.example.nightwingky.androidclient.activity.ListItemActivity;
 import com.example.nightwingky.androidclient.constant.MyConstant;
-import com.example.nightwingky.androidclient.fragment.adapter.HomeListViewAdapter;
 import com.example.nightwingky.androidclient.http.HttpQuery;
 import com.example.nightwingky.androidclient.json.MyJsonConverter;
 import com.example.nightwingky.androidclient.vo.ContentVO;

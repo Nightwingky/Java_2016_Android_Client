@@ -1,4 +1,4 @@
-package com.example.nightwingky.androidclient.fragment.adapter;
+package com.example.nightwingky.androidclient.fragment.home;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.nightwingky.androidclient.R;
-import com.example.nightwingky.androidclient.fragment.imageloader.ImageLoader;
+import com.example.nightwingky.androidclient.imageLoader.ImageLoader;
 import com.example.nightwingky.androidclient.vo.ContentVO;
 
 import java.util.List;

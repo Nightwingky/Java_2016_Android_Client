@@ -1,4 +1,4 @@
-package com.example.nightwingky.androidclient.fragment;
+package com.example.nightwingky.androidclient.fragment.settings;
 
 import android.app.Fragment;
 
