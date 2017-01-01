@@ -62,8 +62,8 @@ public class ShoppingCartListViewAdapter extends BaseAdapter {
         shoppingCartViewHolder.ivIcon.setImageResource(R.mipmap.ic_launcher);
         new ImageLoader().showImageByAsyncTask(shoppingCartViewHolder.ivIcon, mList.get(position).getCommodityImageURL());
         shoppingCartViewHolder.tvTitle.setText(mList.get(position).getCommodityTitle());
-        shoppingCartViewHolder.tvPrice.setText("价格：9.99");
-        shoppingCartViewHolder.tvAmount.setText("数量：1");
+        shoppingCartViewHolder.tvPrice.setText(mList.get(position).getCommodityPrice());
+        shoppingCartViewHolder.tvAmount.setText("数量：" + mList.get(position).getCommodityAmount());
 
         return convertView;
     }

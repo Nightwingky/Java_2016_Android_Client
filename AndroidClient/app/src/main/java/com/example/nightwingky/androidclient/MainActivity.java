@@ -9,12 +9,12 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.example.nightwingky.androidclient.fragment.FragmentHome;
+import com.example.nightwingky.androidclient.fragment.FragmentSearch;
 import com.example.nightwingky.androidclient.fragment.FragmentShoppingCart;
 import com.example.nightwingky.androidclient.fragment.MyFragment;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-//    private TextView tv_topBar;
     private TextView tv_tabHome;
     private TextView tv_tabSearch;
     private TextView tv_tabShoppingcart;
@@ -22,8 +22,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private FrameLayout ly_content;
 
-    private MyFragment f2, f4;
+    private MyFragment f4;
     private FragmentHome fragmentHome;
+    private FragmentSearch fragmentSearch;
     private FragmentShoppingCart fragmentShoppingCart;
     private FragmentManager fragmentManager;
 
@@ -43,7 +44,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void bindView() {
-//        tv_topBar = (TextView) findViewById(R.id.text_top);
         tv_tabHome = (TextView) findViewById(R.id.txt_home);
         tv_tabSearch = (TextView) findViewById(R.id.txt_search);
         tv_tabShoppingcart = (TextView) findViewById(R.id.txt_shoppingcart);
@@ -71,8 +71,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(fragmentHome != null){
             transaction.hide(fragmentHome);
         }
-        if(f2 != null){
-            transaction.hide(f2);
+        if(fragmentSearch != null){
+            transaction.hide(fragmentSearch);
         }
         if(fragmentShoppingCart != null){
             transaction.hide(fragmentShoppingCart);
@@ -110,11 +110,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 setUnselected();
                 tv_tabSearch.setSelected(true);
 
-                if(f2 == null) {
-                    f2 = new MyFragment("Search");
-                    transaction.add(R.id.fragment_container, f2);
+                if(fragmentSearch == null) {
+                    fragmentSearch = new FragmentSearch();
+                    transaction.add(R.id.fragment_container, fragmentSearch);
                 } else {
-                    transaction.show(f2);
+                    transaction.show(fragmentSearch);
                 }
                 break;
             case R.id.txt_shoppingcart:
@@ -125,6 +125,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     fragmentShoppingCart = new FragmentShoppingCart();
                     transaction.add(R.id.fragment_container, fragmentShoppingCart);
                 } else {
+                    fragmentShoppingCart.invalidateListView();
                     transaction.show(fragmentShoppingCart);
                 }
                 break;

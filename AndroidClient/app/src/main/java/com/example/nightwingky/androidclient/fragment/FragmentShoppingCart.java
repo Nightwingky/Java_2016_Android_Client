@@ -15,7 +15,6 @@ import com.example.nightwingky.androidclient.fragment.adapter.ShoppingCartListVi
 import com.example.nightwingky.androidclient.http.HttpQuery;
 import com.example.nightwingky.androidclient.json.MyJsonConverter;
 import com.example.nightwingky.androidclient.vo.CommodityVO;
-import com.example.nightwingky.androidclient.vo.ContentVO;
 
 import org.json.JSONException;
 
@@ -30,6 +29,8 @@ public class FragmentShoppingCart extends Fragment {
 
     private ListView mListView;
 
+    private ContentAsyncTask asyncTask;
+
     private static String URL= MyConstant.getShoppingCartInfoUrl();
 
     public FragmentShoppingCart() {
@@ -42,12 +43,12 @@ public class FragmentShoppingCart extends Fragment {
         View view = inflater.inflate(R.layout.shoppingcart_layout_fragment, container, false);
         mListView = (ListView) view.findViewById(R.id.lv_shoppingCart);
 
-        new FragmentShoppingCart.ContentAsyncTask().execute(URL);
+        asyncTask = new FragmentShoppingCart.ContentAsyncTask();
+        asyncTask.execute(URL);
 
         return view;
     }
 
-    // TODO: 16-12-30 服务器未传递json格式的CommodityVO对象
     private List<CommodityVO> getJsonData() throws IOException, JSONException {
         String jsonString = HttpQuery.getQueryContent(URL);
         List<CommodityVO> commodityVOList = MyJsonConverter.convertSCJsonString(jsonString);
@@ -55,7 +56,17 @@ public class FragmentShoppingCart extends Fragment {
         return commodityVOList;
     }
 
-    // TODO: 16-12-30 服务器未传递json格式的CommodityVO对象
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+    public void invalidateListView() {
+        asyncTask = new FragmentShoppingCart.ContentAsyncTask();
+        asyncTask.execute(URL);
+        this.mListView.invalidateViews();
+    }
+
     class ContentAsyncTask extends AsyncTask<String, Void, List<CommodityVO>> {
 
         @Override
@@ -70,7 +81,6 @@ public class FragmentShoppingCart extends Fragment {
             return null;
         }
 
-        // TODO: 16-12-30 服务器未传递json格式的CommodityVO对象
         @Override
         protected void onPostExecute(List<CommodityVO> commodityVOs) {
             super.onPostExecute(commodityVOs);
