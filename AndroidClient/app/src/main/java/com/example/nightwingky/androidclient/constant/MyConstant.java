@@ -10,11 +10,17 @@ public class MyConstant {
 
     private static final String shoppingCartInfoUrl = "http://172.23.70.17:8080/AndroidServer/SCLvServlet";
 
+    private static final String itemDescriptionUrl = "http://172.23.70.17:8080/AndroidServer/ItemServlet";
+
     public static String getHomeInfoUrl() {
         return homeInfoUrl;
     }
 
     public static String getShoppingCartInfoUrl() {
         return shoppingCartInfoUrl;
+    }
+
+    public static String getItemDescriptionUrl() {
+        return itemDescriptionUrl;
     }
 }

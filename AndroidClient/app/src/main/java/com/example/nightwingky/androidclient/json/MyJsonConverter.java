@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.example.nightwingky.androidclient.vo.CommodityVO;
 import com.example.nightwingky.androidclient.vo.ContentVO;
+import com.example.nightwingky.androidclient.vo.ItemDescriptionVO;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -61,5 +62,21 @@ public class MyJsonConverter {
 
         Log.d("qky", String.valueOf(commodityVOList));
         return commodityVOList;
+    }
+
+    public static ItemDescriptionVO convertItemDescriptionJsonString(String jsonString) throws JSONException {
+
+        JSONObject jsonObject = new JSONObject(jsonString);
+        JSONArray jsonArray =jsonObject.getJSONArray("data");
+        jsonObject = jsonArray.getJSONObject(0);
+
+        ItemDescriptionVO itemDescriptionVO = new ItemDescriptionVO(
+                jsonObject.getString("itemContentTitle"),
+                jsonObject.getString("itemPicURL"),
+                jsonObject.getString("itemDescription"),
+                jsonObject.getString("itemPrice")
+        );
+
+        return itemDescriptionVO;
     }
 }

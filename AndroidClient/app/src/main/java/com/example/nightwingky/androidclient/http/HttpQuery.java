@@ -21,9 +21,9 @@ public class HttpQuery {
     public static String getQueryContent(String url) throws IOException {
         OkHttpClient okHttpClient = new OkHttpClient();
 
-        HttpUrl httpUrl = HttpUrl.parse(url)
-                .newBuilder()
-                .build();
+//        HttpUrl httpUrl = HttpUrl.parse(url)
+//                .newBuilder()
+//                .build();
 
         Request request = new Request
                 .Builder()
