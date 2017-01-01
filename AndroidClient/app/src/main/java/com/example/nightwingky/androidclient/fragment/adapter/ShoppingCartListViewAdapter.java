@@ -1,6 +1,7 @@
 package com.example.nightwingky.androidclient.fragment.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,16 @@ public class ShoppingCartListViewAdapter extends BaseAdapter {
 
     private List<CommodityVO> mList;
     private LayoutInflater mInflater;
+
+    private double totalPrice = 0;
+
+    public double getTotalPrice() {
+        for (CommodityVO c : mList) {
+            totalPrice += Double.valueOf(c.getCommodityPrice()) * Double.valueOf(c.getCommodityAmount());
+        }
+
+        return totalPrice;
+    }
 
     public ShoppingCartListViewAdapter(Context context, List<CommodityVO> mList) {
         this.mList = mList;
@@ -62,7 +73,7 @@ public class ShoppingCartListViewAdapter extends BaseAdapter {
         shoppingCartViewHolder.ivIcon.setImageResource(R.mipmap.ic_launcher);
         new ImageLoader().showImageByAsyncTask(shoppingCartViewHolder.ivIcon, mList.get(position).getCommodityImageURL());
         shoppingCartViewHolder.tvTitle.setText(mList.get(position).getCommodityTitle());
-        shoppingCartViewHolder.tvPrice.setText(mList.get(position).getCommodityPrice());
+        shoppingCartViewHolder.tvPrice.setText("价格：" + mList.get(position).getCommodityPrice());
         shoppingCartViewHolder.tvAmount.setText("数量：" + mList.get(position).getCommodityAmount());
 
         return convertView;

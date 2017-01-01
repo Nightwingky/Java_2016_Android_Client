@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.nightwingky.androidclient.R;
 import com.example.nightwingky.androidclient.constant.MyConstant;
@@ -28,6 +29,7 @@ import java.util.List;
 public class FragmentShoppingCart extends Fragment {
 
     private ListView mListView;
+    private TextView tv_TotalPrice;
 
     private ContentAsyncTask asyncTask;
 
@@ -42,6 +44,7 @@ public class FragmentShoppingCart extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.shoppingcart_layout_fragment, container, false);
         mListView = (ListView) view.findViewById(R.id.lv_shoppingCart);
+        tv_TotalPrice = (TextView) view.findViewById(R.id.tv_total_price);
 
         asyncTask = new FragmentShoppingCart.ContentAsyncTask();
         asyncTask.execute(URL);
@@ -87,6 +90,8 @@ public class FragmentShoppingCart extends Fragment {
 
             ShoppingCartListViewAdapter adapter = new ShoppingCartListViewAdapter(FragmentShoppingCart.this.getActivity(), commodityVOs);
             mListView.setAdapter(adapter);
+
+            tv_TotalPrice.setText(String.valueOf(adapter.getTotalPrice()));
         }
     }
 }
