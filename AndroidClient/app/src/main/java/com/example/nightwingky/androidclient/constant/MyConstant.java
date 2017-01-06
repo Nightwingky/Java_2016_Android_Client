@@ -6,13 +6,13 @@ package com.example.nightwingky.androidclient.constant;
 
 public class MyConstant {
 
-    private static final String homeInfoUrl = "http://172.23.70.17:8080/AndroidServer/HomeListViewServlet";
+    private static final String homeInfoUrl = "http://172.23.68.162:8080/AndroidServer/HomeListViewServlet";
 
-    private static final String shoppingCartInfoUrl = "http://172.23.70.17:8080/AndroidServer/SCLvServlet";
+    private static final String shoppingCartInfoUrl = "http://172.23.68.162:8080/AndroidServer/SCLvServlet";
 
-    private static final String itemDescriptionUrl = "http://172.23.70.17:8080/AndroidServer/ItemServlet";
+    private static final String itemDescriptionUrl = "http://172.23.68.162:8080/AndroidServer/ItemServlet";
 
-    private static final String itemInsertUrl = "http://172.23.70.17:8080/AndroidServer/SCAddServlet";
+    private static final String itemInsertUrl = "http://172.23.68.162:8080/AndroidServer/SCAddServlet";
 
     public static String getHomeInfoUrl() {
         return homeInfoUrl;
